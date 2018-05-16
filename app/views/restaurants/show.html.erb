@@ -1,0 +1,12 @@
+<h1><%= @restaurant.name%></h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <p><%= @restaurant.address%></p>
+      <p><%= @restaurant.phone_number%></p>
+      <p><%= @restaurant.category%></p>
+  <!-- <p><%= @restaurant.reviews %></p> -->
+    </div>
+  </div>
+  <%= link_to "See all", restaurants_path, class: "btn btn-primary"%>
+</div>
