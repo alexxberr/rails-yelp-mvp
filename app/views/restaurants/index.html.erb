@@ -2,7 +2,11 @@
   <h1>Restaurants</h1>
   <div>
     <% @restaurants.each do |restaurant| %>
-      <div><%= link_to restaurant.name, restaurant_path(restaurant) %></div>
+      <div>
+        <h3> <%= link_to restaurant.name, restaurant_path(restaurant) %> </h3>
+        <p><%= link_to '<i class="fas fa-plus"></i>'.html_safe, new_restaurant_review_path(restaurant) %>(Add a review)</p>
+      </div>
     <%end %>
+    <div>  <%=link_to "Add a restaurant", new_restaurant_path, class: "btn btn-primary"%></div>
   </div>
 </div>

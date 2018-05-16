@@ -5,6 +5,13 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    @review = Review.new
+    @review.restaurant = @restaurant
+    if @review.save
+      redirect_to restaurant_path(@restaurant)
+    else
+      render :show
+    end
   end
 
   def new
@@ -26,4 +33,7 @@ private
     params.require(:restaurant).permit(:name, :address, :phone_number, :category)
   end
 
+  def review_params
+    params.require(:review).permit(:content, :rating)
+  end
 end
